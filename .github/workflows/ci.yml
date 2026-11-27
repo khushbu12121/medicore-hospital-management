@@ -1,4 +1,3 @@
-
 name: MediCore CI Pipeline
 
 on:
@@ -36,4 +35,32 @@ jobs:
         run: npm test
 
       - name: Build TypeScript application
+        run: npm run build
+
+  frontend-ci:
+    name: Frontend Lint and Build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Build Next.js application
         run: npm run build
