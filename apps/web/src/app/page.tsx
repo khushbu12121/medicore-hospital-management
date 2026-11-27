@@ -294,24 +294,24 @@ useEffect(() => {
 
   // Authentication
   useEffect(() => {
-    const token = localStorage.getItem("medicore_token");
-    const savedUser = localStorage.getItem("medicore_user");
+  const token = localStorage.getItem("medicore_token");
+  const savedUser = localStorage.getItem("medicore_user");
 
-    if (!token) {
-      router.replace("/login");
-      return;
+  if (!token) {
+    router.replace("/login");
+    return;
+  }
+
+  if (savedUser) {
+    try {
+      setUser(JSON.parse(savedUser));
+    } catch {
+      localStorage.removeItem("medicore_user");
     }
+  }
 
-    if (savedUser) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch {
-        localStorage.removeItem("medicore_user");
-      }
-    }
-
-    setAuthChecked(true);
-  }, [router]);
+  setAuthChecked(true);
+}, [router]);
 
   // Logout
   function handleLogout() {
