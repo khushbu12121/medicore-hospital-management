@@ -1,0 +1,8 @@
+patient_id,test_name,value,unit
+P001,hemoglobin,14.2,g/dL
+P002,glucose,110,mg/dL
+P003,wbc,8500,cells/uL
+P004,glucose,180,mg/dL
+P005,hemoglobin,,g/dL
+P006,wbc,abc,cells/uL
+P007,glucose,95,mmol/L

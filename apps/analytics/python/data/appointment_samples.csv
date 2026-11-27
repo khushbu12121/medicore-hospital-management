@@ -1,0 +1,8 @@
+appointment_id,status,duration_minutes
+A001,completed,30
+A002,scheduled,45
+A003,cancelled,20
+A004,no_show,30
+A005,completed,60
+A006,invalid_status,25
+A007,scheduled,-5
